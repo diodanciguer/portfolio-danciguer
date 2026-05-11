@@ -22,12 +22,14 @@ export function ThemeContextProvider({ children }: { children: React.ReactNode }
 
   useEffect(() => {
     // Recuperar o tema salvo no localStorage
-    const savedMode = localStorage.getItem('theme-mode') as PaletteMode | null;
-    if (savedMode) {
-      setMode(savedMode);
-    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      // Usar preferência do sistema se não houver tema salvo
-      setMode('dark');
+    if (typeof window !== 'undefined') {
+      const savedMode = window.localStorage.getItem('theme-mode') as PaletteMode | null;
+      if (savedMode) {
+        setMode(savedMode);
+      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        // Usar preferência do sistema se não houver tema salvo
+        setMode('dark');
+      }
     }
   }, []);
 
@@ -37,7 +39,9 @@ export function ThemeContextProvider({ children }: { children: React.ReactNode }
       toggleColorMode: () => {
         const newMode = mode === 'light' ? 'dark' : 'light';
         setMode(newMode);
-        localStorage.setItem('theme-mode', newMode);
+        if (typeof window !== 'undefined') {
+          window.localStorage.setItem('theme-mode', newMode);
+        }
       },
     }),
     [mode],
