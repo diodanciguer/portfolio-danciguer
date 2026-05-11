@@ -1,7 +1,15 @@
 import type { NextConfig } from "next";
 
+const isProd = process.env.NODE_ENV === 'production';
+
 const nextConfig: NextConfig = {
-  output: 'standalone',
+  output: 'export',
+  // Configure the base path for GitHub Pages
+  basePath: isProd ? '/portfolio-site' : '',
+  assetPrefix: isProd ? '/portfolio-site/' : '',
+  images: {
+    unoptimized: true, // Required for static export
+  },
   eslint: {
     ignoreDuringBuilds: true,
   },
