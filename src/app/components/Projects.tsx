@@ -48,11 +48,11 @@ const projectsData = [
   {
     id: 4,
     title: 'Weather Dashboard',
-    description: 'Dashboard de previsão do tempo com visualizações de dados e alertas personalizados.',
+    description: 'Dashboard de previsão do tempo com visualizações de dados meteorológicos em tempo real.',
     image: '/projects/weather.jpg',
-    technologies: ['React', 'D3.js', 'Weather API', 'Tailwind CSS'],
-    githubUrl: 'https://github.com/username/weather-dashboard',
-    demoUrl: 'https://weather-dashboard-demo.com'
+    technologies: ['HTML5', 'CSS3', 'JavaScript', 'Weather API'],
+    githubUrl: 'https://github.com/diodanciguer/Weather-Dashboard',
+    demoUrl: 'https://diodanciguer.github.io/Weather-Dashboard/'
   }
 ];
 
