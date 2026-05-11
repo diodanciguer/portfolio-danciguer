@@ -48,16 +48,25 @@ export default function About() {
               sx={{ 
                 p: 4, 
                 height: '100%',
-                bgcolor: 'background.paper',
-                borderRadius: 2,
-                transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
+                background: theme => theme.palette.mode === 'dark' 
+                  ? 'rgba(30, 41, 59, 0.5)' 
+                  : 'rgba(255, 255, 255, 0.6)',
+                backdropFilter: 'blur(12px)',
+                border: '1px solid',
+                borderColor: theme => theme.palette.mode === 'dark' 
+                  ? 'rgba(255,255,255,0.1)' 
+                  : 'rgba(0,0,0,0.05)',
+                borderRadius: '20px',
+                transition: 'all 0.4s ease',
                 '&:hover': {
                   transform: 'translateY(-5px)',
-                  boxShadow: 6
+                  boxShadow: theme => theme.palette.mode === 'dark'
+                    ? '0 15px 30px rgba(99, 102, 241, 0.15)'
+                    : '0 15px 30px rgba(99, 102, 241, 0.1)',
                 }
               }}
             >
-              <Typography variant="h5" gutterBottom sx={{ fontWeight: 'medium', color: 'primary.main' }}>
+              <Typography variant="h5" gutterBottom sx={{ fontWeight: 'bold', background: 'linear-gradient(to right, #6366f1, #a855f7)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', display: 'inline-block' }}>
                 Quem sou eu
               </Typography>
               <Typography paragraph>
@@ -89,16 +98,25 @@ export default function About() {
               sx={{ 
                 p: 4, 
                 height: '100%',
-                bgcolor: 'background.paper',
-                borderRadius: 2,
-                transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
+                background: theme => theme.palette.mode === 'dark' 
+                  ? 'rgba(30, 41, 59, 0.5)' 
+                  : 'rgba(255, 255, 255, 0.6)',
+                backdropFilter: 'blur(12px)',
+                border: '1px solid',
+                borderColor: theme => theme.palette.mode === 'dark' 
+                  ? 'rgba(255,255,255,0.1)' 
+                  : 'rgba(0,0,0,0.05)',
+                borderRadius: '20px',
+                transition: 'all 0.4s ease',
                 '&:hover': {
                   transform: 'translateY(-5px)',
-                  boxShadow: 6
+                  boxShadow: theme => theme.palette.mode === 'dark'
+                    ? '0 15px 30px rgba(99, 102, 241, 0.15)'
+                    : '0 15px 30px rgba(99, 102, 241, 0.1)',
                 }
               }}
             >
-              <Typography variant="h5" gutterBottom sx={{ fontWeight: 'medium', mb: 3, color: 'primary.main' }}>
+              <Typography variant="h5" gutterBottom sx={{ fontWeight: 'bold', mb: 3, background: 'linear-gradient(to right, #6366f1, #a855f7)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', display: 'inline-block' }}>
                 Habilidades
               </Typography>
               <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
@@ -106,14 +124,18 @@ export default function About() {
                   <Chip 
                     key={skill} 
                     label={skill} 
-                    color="primary" 
                     variant="outlined" 
                     sx={{ 
                       m: 0.5, 
-                      fontWeight: 500,
+                      fontWeight: 600,
+                      fontFamily: 'monospace',
+                      borderColor: 'rgba(99, 102, 241, 0.3)',
+                      color: theme => theme.palette.mode === 'dark' ? '#e2e8f0' : '#334155',
                       '&:hover': {
-                        backgroundColor: 'primary.main',
-                        color: 'white'
+                        background: 'linear-gradient(to right, #6366f1, #a855f7)',
+                        color: 'white',
+                        borderColor: 'transparent',
+                        boxShadow: '0 4px 10px rgba(99, 102, 241, 0.3)'
                       }
                     }}
                   />

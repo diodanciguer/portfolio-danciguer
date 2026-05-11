@@ -190,10 +190,22 @@ export default function Projects() {
                     height: '100%', 
                     display: 'flex', 
                     flexDirection: 'column',
-                    transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
+                    background: theme => theme.palette.mode === 'dark' 
+                      ? 'rgba(30, 41, 59, 0.7)' 
+                      : 'rgba(255, 255, 255, 0.7)',
+                    backdropFilter: 'blur(10px)',
+                    border: '1px solid',
+                    borderColor: theme => theme.palette.mode === 'dark' 
+                      ? 'rgba(255,255,255,0.1)' 
+                      : 'rgba(0,0,0,0.05)',
+                    borderRadius: '16px',
+                    transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
                     '&:hover': {
-                      transform: 'translateY(-8px)',
-                      boxShadow: 8
+                      transform: 'translateY(-10px) scale(1.02)',
+                      boxShadow: theme => theme.palette.mode === 'dark'
+                        ? '0 20px 40px rgba(99, 102, 241, 0.2)'
+                        : '0 20px 40px rgba(99, 102, 241, 0.15)',
+                      borderColor: 'rgba(99, 102, 241, 0.5)'
                     }
                   }}
                 >

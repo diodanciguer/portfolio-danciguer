@@ -41,12 +41,16 @@ export default function Header() {
   return (
     <AppBar 
       position="sticky" 
-      color="default" 
+      color="transparent" 
       elevation={0}
       sx={{ 
         py: 1,
         borderBottom: '1px solid',
-        borderColor: 'divider'
+        borderColor: 'divider',
+        backgroundColor: theme => theme.palette.mode === 'dark' ? 'rgba(18, 18, 18, 0.75)' : 'rgba(255, 255, 255, 0.75)',
+        backdropFilter: 'blur(12px)',
+        WebkitBackdropFilter: 'blur(12px)',
+        transition: 'background-color 0.3s ease',
       }}
     >
       <Container maxWidth="lg">

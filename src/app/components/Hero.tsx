@@ -25,16 +25,23 @@ export default function Hero() {
         minHeight: 'calc(100vh - 64px)',
         position: 'relative',
         overflow: 'hidden',
-        background: theme => `linear-gradient(135deg, ${theme.palette.background.default} 0%, ${theme.palette.background.paper} 100%)`,
+        background: theme => theme.palette.mode === 'dark' 
+          ? 'linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%)' 
+          : 'linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%)',
         '&::before': {
           content: '""',
           position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          backgroundImage: 'radial-gradient(circle at 25% 25%, rgba(37, 99, 235, 0.05) 0%, transparent 50%), radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.05) 0%, transparent 50%)',
+          top: '-50%',
+          left: '-50%',
+          width: '200%',
+          height: '200%',
+          background: 'radial-gradient(circle at center, rgba(99, 102, 241, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.15) 0%, transparent 50%)',
+          animation: 'rotate 20s linear infinite',
           zIndex: 0
+        },
+        '@keyframes rotate': {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' }
         }
       }}
     >
@@ -62,14 +69,18 @@ export default function Hero() {
                 overflow: 'hidden',
                 mx: 'auto',
                 mb: 3,
-                boxShadow: '0 20px 40px rgba(0,0,0,0.15)',
-                border: '5px solid white',
+                boxShadow: theme => theme.palette.mode === 'dark' 
+                  ? '0 0 40px rgba(99, 102, 241, 0.4)' 
+                  : '0 20px 40px rgba(99, 102, 241, 0.2)',
+                border: '4px solid',
+                borderColor: 'background.paper',
                 '&::before': {
                   content: '""',
                   position: 'absolute',
                   inset: 0,
-                  background: 'linear-gradient(45deg, rgba(37, 99, 235, 0.2), rgba(139, 92, 246, 0.2))',
-                  zIndex: 1
+                  background: 'linear-gradient(45deg, rgba(99, 102, 241, 0.2), rgba(168, 85, 247, 0.2))',
+                  zIndex: 1,
+                  mixBlendMode: 'overlay'
                 }
               }}
             >
@@ -94,10 +105,13 @@ export default function Hero() {
               component="h1" 
               gutterBottom
               sx={{ 
-                fontWeight: 'bold',
-                fontSize: { xs: '2.5rem', md: '3.5rem' },
-                color: theme.palette.mode === 'light' ? '#1d4ed8' : '#60a5fa',
-                mb: 2
+                fontWeight: 800,
+                fontSize: { xs: '2.5rem', md: '4rem' },
+                letterSpacing: '-0.02em',
+                background: 'linear-gradient(to right, #6366f1, #a855f7)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                mb: 1
               }}
             >
               Diego Danciguer
@@ -106,9 +120,13 @@ export default function Hero() {
             <Typography 
               variant="h4" 
               component="h2" 
-              color="primary"
               gutterBottom
-              sx={{ mb: 3, fontWeight: 'medium' }}
+              sx={{ 
+                mb: 3, 
+                fontWeight: 600,
+                color: 'text.secondary',
+                fontSize: { xs: '1.5rem', md: '2rem' }
+              }}
             >
               Desenvolvedor Full-Stack
             </Typography>
@@ -131,12 +149,17 @@ export default function Hero() {
                   px: 4, 
                   py: 1.5,
                   fontSize: '1.1rem',
-                  background: 'linear-gradient(45deg, primary.main, secondary.main)',
+                  background: 'linear-gradient(to right, #6366f1, #a855f7)',
+                  color: 'white',
                   fontWeight: 'bold',
+                  borderRadius: '30px',
+                  textTransform: 'none',
+                  boxShadow: '0 10px 25px rgba(99, 102, 241, 0.4)',
+                  transition: 'all 0.3s ease',
                   '&:hover': {
-                    background: 'linear-gradient(45deg, primary.dark, secondary.dark)',
-                    transform: 'translateY(-3px)',
-                    boxShadow: '0 10px 20px rgba(0,0,0,0.15)'
+                    background: 'linear-gradient(to right, #4f46e5, #9333ea)',
+                    transform: 'translateY(-3px) scale(1.02)',
+                    boxShadow: '0 15px 30px rgba(99, 102, 241, 0.6)'
                   }
                 }}
               >
