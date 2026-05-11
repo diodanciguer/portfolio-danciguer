@@ -18,7 +18,7 @@ export default function Hero() {
     <Box 
       component="section" 
       sx={{ 
-        py: { xs: 8, md: 12 },
+        py: { xs: 10, md: 16 },
         display: 'flex',
         alignItems: 'center',
         minHeight: 'calc(100vh - 64px)',
@@ -69,8 +69,8 @@ export default function Hero() {
                 mx: 'auto',
                 mb: 3,
                 boxShadow: theme => theme.palette.mode === 'dark' 
-                  ? '0 0 40px rgba(99, 102, 241, 0.4)' 
-                  : '0 20px 40px rgba(99, 102, 241, 0.2)',
+                  ? '0 0 60px rgba(99, 102, 241, 0.25)' 
+                  : '0 20px 50px rgba(99, 102, 241, 0.15)',
                 border: '4px solid',
                 borderColor: 'background.paper',
                 '&::before': {

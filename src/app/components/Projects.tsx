@@ -94,7 +94,7 @@ export default function Projects() {
       id="projetos" 
       component="section" 
       sx={{ 
-        py: { xs: 6, md: 10 },
+        py: { xs: 10, md: 16 },
         bgcolor: 'background.paper'
       }}
     >
@@ -201,42 +201,49 @@ export default function Projects() {
                     borderRadius: '16px',
                     transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
                     '&:hover': {
-                      transform: 'translateY(-10px) scale(1.02)',
+                      transform: 'translateY(-10px) scale(1.01)',
                       boxShadow: theme => theme.palette.mode === 'dark'
-                        ? '0 20px 40px rgba(99, 102, 241, 0.2)'
-                        : '0 20px 40px rgba(99, 102, 241, 0.15)',
-                      borderColor: 'rgba(99, 102, 241, 0.5)'
+                        ? '0 20px 40px rgba(99, 102, 241, 0.15)'
+                        : '0 20px 40px rgba(99, 102, 241, 0.12)',
+                      borderColor: 'rgba(99, 102, 241, 0.4)'
                     }
                   }}
                 >
                   <CardMedia
                     component="img"
-                    height="200"
+                    height="220"
                     image={getProjectImage(project)}
                     alt={project.title}
                     sx={{
                       objectFit: 'cover',
+                      borderBottom: '1px solid',
+                      borderColor: 'divider'
                     }}
                   />
-                  <CardContent sx={{ flexGrow: 1 }}>
+                  <CardContent sx={{ p: 3, flexGrow: 1 }}>
                     <Typography gutterBottom variant="h5" component="h3" sx={{ fontWeight: 'bold', color: 'primary.main' }}>
                       {project.title}
                     </Typography>
                     <Typography variant="body2" color="text.secondary" paragraph>
                       {project.description}
                     </Typography>
-                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5, mt: 2 }}>
+                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mt: 3 }}>
                       {project.technologies.map(tech => (
                         <Chip 
                           key={`${project.id}-${tech}`} 
                           label={tech} 
                           size="small" 
-                          variant="outlined"
                           sx={{ 
-                            fontWeight: 500,
+                            fontWeight: 600,
+                            fontSize: '0.75rem',
+                            borderRadius: '6px',
+                            background: theme => theme.palette.mode === 'dark' ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.03)',
+                            border: '1px solid',
+                            borderColor: 'divider',
                             '&:hover': {
-                              backgroundColor: 'primary.light',
-                              color: 'white'
+                              background: 'linear-gradient(to right, #6366f1, #a855f7)',
+                              color: 'white',
+                              borderColor: 'transparent'
                             }
                           }}
                         />

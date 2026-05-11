@@ -139,7 +139,7 @@ export default function Contact() {
       id="contato" 
       component="section" 
       sx={{ 
-        py: { xs: 6, md: 10 },
+        py: { xs: 10, md: 16 },
         bgcolor: 'background.default',
         backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 0, 0, 0.02) 1px, transparent 1px)',
         backgroundSize: '20px 20px'

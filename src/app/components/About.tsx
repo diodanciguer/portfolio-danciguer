@@ -18,7 +18,7 @@ export default function About() {
       id="sobre" 
       component="section" 
       sx={{ 
-        py: { xs: 6, md: 10 },
+        py: { xs: 10, md: 16 },
         bgcolor: 'background.default'
       }}
     >
@@ -61,8 +61,8 @@ export default function About() {
                 '&:hover': {
                   transform: 'translateY(-5px)',
                   boxShadow: theme => theme.palette.mode === 'dark'
-                    ? '0 15px 30px rgba(99, 102, 241, 0.15)'
-                    : '0 15px 30px rgba(99, 102, 241, 0.1)',
+                    ? '0 10px 30px rgba(99, 102, 241, 0.12)'
+                    : '0 10px 30px rgba(99, 102, 241, 0.08)',
                 }
               }}
             >
@@ -111,8 +111,8 @@ export default function About() {
                 '&:hover': {
                   transform: 'translateY(-5px)',
                   boxShadow: theme => theme.palette.mode === 'dark'
-                    ? '0 15px 30px rgba(99, 102, 241, 0.15)'
-                    : '0 15px 30px rgba(99, 102, 241, 0.1)',
+                    ? '0 10px 30px rgba(99, 102, 241, 0.12)'
+                    : '0 10px 30px rgba(99, 102, 241, 0.08)',
                 }
               }}
             >

@@ -161,9 +161,13 @@ export default function Header() {
           display: { xs: 'block', md: 'none' },
           '& .MuiDrawer-paper': { 
             boxSizing: 'border-box', 
-            width: 240,
-            backgroundImage: theme => 
-              `linear-gradient(to bottom, ${theme.palette.background.paper}, ${theme.palette.background.default})`,
+            width: 280,
+            background: theme => theme.palette.mode === 'dark' 
+              ? 'rgba(15, 23, 42, 0.8)' 
+              : 'rgba(255, 255, 255, 0.8)',
+            backdropFilter: 'blur(15px)',
+            borderLeft: '1px solid',
+            borderColor: 'divider',
           },
         }}
       >
