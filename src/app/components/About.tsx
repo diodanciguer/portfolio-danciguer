@@ -119,12 +119,32 @@ export default function About() {
               <Typography variant="h5" gutterBottom sx={{ fontWeight: 'bold', mb: 3, background: 'linear-gradient(to right, #6366f1, #a855f7)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', display: 'inline-block' }}>
                 Habilidades
               </Typography>
-              <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+              <Box 
+                component={motion.div}
+                variants={{
+                  hidden: { opacity: 0 },
+                  show: {
+                    opacity: 1,
+                    transition: {
+                      staggerChildren: 0.1
+                    }
+                  }
+                }}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+                sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}
+              >
                 {skills.map((skill) => (
                   <Chip 
                     key={skill} 
                     label={skill} 
                     variant="outlined" 
+                    component={motion.div}
+                    variants={{
+                      hidden: { opacity: 0, scale: 0.8 },
+                      show: { opacity: 1, scale: 1 }
+                    }}
                     sx={{ 
                       m: 0.5, 
                       fontWeight: 600,
