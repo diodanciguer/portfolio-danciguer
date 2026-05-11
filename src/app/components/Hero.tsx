@@ -3,7 +3,7 @@
 import { Box, Button, Container, Typography, useTheme } from '@mui/material';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import profilePic from '../../../../public/images/Diego.jpeg';
+import profilePic from '../../../public/images/Diego.jpeg';
 
 export default function Hero() {
   const theme = useTheme();
