@@ -19,6 +19,15 @@ import { motion } from 'framer-motion';
 // Dados dos projetos
 const projectsData = [
   {
+    id: 0,
+    title: 'Próximo Nível',
+    description: 'Rastreador de hábitos gamificado (RPG Habit Tracker) que transforma tarefas diárias em uma aventura épica com XP, níveis e recompensas reais.',
+    image: '/projects/proximo-nivel.png',
+    technologies: ['Next.js', 'React', 'Tailwind CSS', 'Prisma', 'PostgreSQL', 'shadcn/ui'],
+    githubUrl: 'https://github.com/diodanciguer/next-level',
+    demoUrl: 'https://next-level-virid.vercel.app/'
+  },
+  {
     id: 1,
     title: 'E-commerce Platform',
     description: 'Plataforma de e-commerce completa com painel administrativo, pagamentos e gestão de estoque.',
@@ -81,6 +90,7 @@ export default function Projects() {
   const getProjectImage = (project: typeof projectsData[0]) => {
     const index = project.id;
     switch(index) {
+      case 0: return project.image;
       case 1: return fallbackImages.ecommerce;
       case 2: return fallbackImages.taskapp;
       case 3: return fallbackImages.blog;
