@@ -22,7 +22,7 @@ const projectsData = [
     id: 0,
     title: 'Próximo Nível',
     description: 'Rastreador de hábitos gamificado (RPG Habit Tracker) que transforma tarefas diárias em uma aventura épica com XP, níveis e recompensas reais.',
-    image: '/projects/proximo-nivel.png',
+    image: '/images/proximo-nivel.png',
     technologies: ['Next.js', 'React', 'Tailwind CSS', 'Prisma', 'PostgreSQL', 'shadcn/ui'],
     githubUrl: 'https://github.com/diodanciguer/next-level',
     demoUrl: 'https://next-level-virid.vercel.app/'
@@ -88,9 +88,17 @@ export default function Projects() {
 
   // Função para obter a imagem correta ou usar fallback
   const getProjectImage = (project: typeof projectsData[0]) => {
+    const isProd = process.env.NODE_ENV === 'production';
+    const basePath = isProd ? '/portfolio-danciguer' : '';
+    
+    const getUrl = (path: string) => {
+      if (path.startsWith('http')) return path;
+      return `${basePath}${path.startsWith('/') ? '' : '/'}${path}`;
+    };
+
     const index = project.id;
     switch(index) {
-      case 0: return project.image;
+      case 0: return getUrl(project.image);
       case 1: return fallbackImages.ecommerce;
       case 2: return fallbackImages.taskapp;
       case 3: return fallbackImages.blog;
